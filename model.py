@@ -52,4 +52,5 @@ class SSD(keras.Model):
 if __name__ == "__main__":
     
     model = SSD()
+    model.build((512,512,3))
     print(model.summary())
