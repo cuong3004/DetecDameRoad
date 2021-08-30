@@ -25,7 +25,7 @@ class Block(keras.Model):
         
 
 
-class SSD(keras.Model)
+class SSD(keras.Model):
 
     def down(self, x):
         return layers.MaxPool2D()(x)
