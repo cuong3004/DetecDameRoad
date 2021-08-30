@@ -2,11 +2,8 @@ import tensorflow.keras as keras
 import tensorflow as tf 
 from tensorflow.keras import layers 
 
-
 class Block(keras.Model):
 
-    
-    
     def __init__(self, out_dim_1, out_dim_2):
         super().__init__()
         self.net = keras.Sequential(
