@@ -12,7 +12,7 @@ class Block(keras.Model):
         self.net = keras.Sequential(
             [
                 layers.Conv2D(out_dim_1, (3,3), padding="same"),
-                layers.BatchNormalization()  
+                layers.BatchNormalization(),
                 layers.ReLU(),
                 layers.Conv2D(out_dim_2, (3,3), padding="same"),
                 layers.BatchNormalization()
