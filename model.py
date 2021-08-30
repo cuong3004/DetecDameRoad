@@ -33,7 +33,7 @@ class SSD(keras.Model):
     def __init__(self):
         super().__init__()
 
-        self.input = keras.Input(shape=(512,512,3))
+        self.my_input = keras.Input(shape=(512,512,3))
         
         self.env1 = Block(16,16)
         self.env2 = Block(16, 32)
@@ -42,7 +42,7 @@ class SSD(keras.Model):
 
     def call(self, X):
         
-        X = self.input(X)
+        X = self.my_input(X)
 
         X = self.env1(X)
         X = self.env2(X)
