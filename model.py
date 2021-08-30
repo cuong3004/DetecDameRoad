@@ -33,7 +33,7 @@ class SSD(keras.Model):
     def __init__(self):
         super().__init__()
 
-        self.input = Layers.Input(sizd=(512,512,3))
+        self.input = layers.Input(sizd=(512,512,3))
         
         self.env1 = Block(16,16)
         self.env2 = Block(16, 32)
