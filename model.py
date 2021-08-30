@@ -52,7 +52,7 @@ class SSD(keras.Model):
         return X 
 
 
-if if __name__ == "__main__":
+if __name__ == "__main__":
     
     model = SSD()
     print(model.summary())
