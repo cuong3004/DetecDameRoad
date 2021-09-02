@@ -63,7 +63,7 @@ class CustomData(Dataset):
             y2 = y2/h
             label.append([category, x1,y1,x2,y2])
 
-        image = torch.from_numpy(image.astype(np.float32))
+        image = torch.from_numpy(image.astype(np.float32)/255.0)
         label = torch.tensor(label, dtype=torch.float32)
 
 
