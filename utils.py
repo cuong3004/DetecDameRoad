@@ -29,6 +29,7 @@ transform_albu = A.Compose([
         A.Cutout(),
         A.RandomSunFlare(p=0.5, src_radius=80),
         A.RandomBrightnessContrast(),
+        A.HorizontalFlip(),
         A.Resize(*image_size),
         
     ], bbox_params=A.BboxParams(format='pascal_voc', min_visibility=0.5,label_fields=['class_labels'] ))
