@@ -31,7 +31,7 @@ transform_albu = A.Compose([
         A.RandomBrightnessContrast(),
         A.Resize(*image_size),
         
-    ], bbox_params=A.BboxParams(format='albumentations', min_visibility=0.5,label_fields=['class_labels'] ))
+    ], bbox_params=A.BboxParams(format='pascal_voc', min_visibility=0.5,label_fields=['class_labels'] ))
 
 # transform_valid_albu = A.Compose([
 #         A.Resize(*image_size),
