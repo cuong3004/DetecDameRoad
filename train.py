@@ -33,9 +33,11 @@ def cli_main():
     # ---------------\\\\\\==========//////-------------------------
 
     # ---------------------Load Dataset ------------------------------
+    
+    df = pd.read_csv("df.csv")
 
 
-    dataset = CustomData(df, label_map, transform=transforms)
+    dataset = CustomData(df, label_map, transform=transforms, keep_difficult=False)
     dataloader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn)
     # load_data_bananas
     '''
