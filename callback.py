@@ -10,7 +10,7 @@ folder_checkpoint = 'checkpoint'
 if not os.path.exists(folder_checkpoint): # create folder
     os.mkdir(folder_checkpoint)
     
-checkpoint_callback = pl.ModelCheckpoint(
+checkpoint_callback = pl.callbacks.ModelCheckpoint(
     dirpath=folder_checkpoint,
     filename="model",
     save_top_k=1,
