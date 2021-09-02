@@ -46,8 +46,8 @@ def cli_main():
     valid_size = len(dataset) - train_size
     train_dataset, valid_dataset = random_split(dataset, [train_size, valid_size])
 
-    train_loader = DataLoader(train_dataset, batch_size=10, shuffle=True , num_workers=0, pin_memory=True, collate_fn=collate_fn)
-    val_loader = DataLoader(valid_dataset, batch_size=10, shuffle=False, num_workers=0, pin_memory=True, collate_fn=collate_fn)
+    train_loader = DataLoader(train_dataset, batch_size=50, shuffle=True , num_workers=0, pin_memory=True, collate_fn=collate_fn)
+    val_loader = DataLoader(valid_dataset, batch_size=50, shuffle=False, num_workers=0, pin_memory=True, collate_fn=collate_fn)
     
 
     # test_input_dataset(train_dataset)
