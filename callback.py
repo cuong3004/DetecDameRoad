@@ -124,7 +124,7 @@ def predict_from_output(anchors, cls_preds, bbox_preds):
     # print(torch.unique([out[output_idx[1]] for out in output]))
     return outputs
 
-def draw_img_predict(imgTensor, outputs, threshold=0.9):
+def draw_img_predict(imgTensor, outputs, threshold=0.5):
     imgs = torch.clone(imgTensor)
     imgTensor_new = []
     batch = imgs.shape[0]

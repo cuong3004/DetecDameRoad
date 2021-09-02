@@ -28,7 +28,7 @@ transform_albu = A.Compose([
         A.Blur(p=0.7),
         A.Cutout(),
         A.RandomSunFlare(p=0.5, src_radius=80),
-        A.MotionBlur()
+        A.MotionBlur(),
         A.GaussNoise(p=0.5, var_limit=(50.0, 50.0),mean=10),
         A.RandomBrightnessContrast(),
         A.HorizontalFlip(),
