@@ -8,15 +8,16 @@ from torchsummary import summary
 import callback as call
 import os
 from data_download_banana import load_data_bananas
+from custom_data import CustomData
 
 # def transforms_banana(a)
 
 batch_size, edge_size = 32, 256
-train_iter, valid_iter = load_data_bananas(batch_size)
-for x, y in train_iter:
-    print(x.dtype)
-    print(x.max())
-    break
+# train_iter, valid_iter = load_data_bananas(batch_size)
+# for x, y in train_iter:
+#     print(x.dtype)
+#     print(x.max())
+#     break
 def cli_main():
     pl.seed_everything(1234)
     """Combin all, load config and load dataset, them trainning
@@ -34,11 +35,8 @@ def cli_main():
     # ---------------------Load Dataset ------------------------------
 
 
-   #  dataset = torchvision.datasets.VOCDetection(
-			# root=".",image_set="train", 
-			# # download=True, 
-			# transforms=transforms)
-    # dataloader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn)
+    dataset = CustomData(df, label_map, transform=transforms)
+    dataloader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn)
     # load_data_bananas
     '''
     train_size = int(0.9 * len(dataset))

@@ -10,11 +10,10 @@ import cv2
 font = 0
 fontScale = 0.5
 # thickness = 2
-image_size = (300,300)
+image_size = (512,512)
 
 
-voc_labels = ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable',
-              'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor')
+voc_labels = ('bicycle', 'car', 'bus', 'motorcycle')
 label_map = {k: v for v, k in enumerate(voc_labels)}
 rev_label_map = {v: k for k, v in label_map.items()}  # Inverse mapping
 distinct_hex = ['#e6194b', '#3cb44b', '#ffe119', '#0082c8', '#f58231', '#911eb4', '#46f0f0', '#f032e6',
@@ -24,6 +23,12 @@ distinct_colors = [ImageColor.getrgb(i) for i in distinct_hex]
 label_color_map = {k: distinct_colors[i] for i, k in enumerate(label_map.keys())}
 
 transform_albu = A.Compose([
+        A.ISONoise(p=0.7, color_shift=(0.2, 0.2), intensity=(0.5, 0.5)),
+        A.PadIfNeeded(p=0.8, border_mode=0, min_height=512, min_width=512 ),
+        A.Blur(p=0.7),
+        A.Cutout(),
+        A.RandomSunFlare(p=0.5, src_radius=80),
+        A.RandomBrightnessContrast(),
         A.Resize(*image_size),
         
     ], bbox_params=A.BboxParams(format='albumentations', min_visibility=0.5,))
