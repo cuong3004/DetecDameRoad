@@ -4,6 +4,7 @@ from utils import *
 from torchvision.utils import make_grid
 import cv2
 import numpy as np
+import os
 
 folder_checkpoint = 'checkpoint'
 if not os.path.exists(folder_checkpoint): # create folder
