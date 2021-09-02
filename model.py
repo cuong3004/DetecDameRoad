@@ -144,10 +144,10 @@ class MySSD(torch.nn.Module):
         self.batch_norm = batch_norm
         self.upscale_mode = upscale_mode
 
-        self.sizes = [[0.2, 0.272], [0.37, 0.447], 
-                        [0.54, 0.619], [0.71, 0.79], 
-                        [0.88, 0.961]]
-        self.ratios = [[1, 2, 0.5]] * 5
+        self.sizes = [[0.1, 0.141], [0.2, 0.272], 
+                        [0.37, 0.449], [0.54, 0.619], 
+                        [0.71, 0.79]]
+        self.ratios = [[1, 2, 0.5, 3, 0.33]] * 5
         self.num_anchors = [len(size) + len(ratio) - 1 for size, ratio in zip(self.sizes, self.ratios)]
 
         self.auxiliaryconvs = AuxiliaryConvolutions()
