@@ -9,6 +9,7 @@ import callback as call
 import os
 # from data_download_banana import load_data_bananas
 from custom_data import CustomData
+import pandas as pd
 
 # def transforms_banana(a)
 
