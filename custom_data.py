@@ -83,10 +83,10 @@ class CustomData(Dataset):
             if class_name in self.class_dict:
                 bbox = object.find('bndbox')
 
-                x1 = float(bbox.find('xmin').text) - 1
-                y1 = float(bbox.find('ymin').text) - 1
-                x2 = float(bbox.find('xmax').text) - 1
-                y2 = float(bbox.find('ymax').text) - 1
+                x1 = float(bbox.find('xmin').text)
+                y1 = float(bbox.find('ymin').text)
+                x2 = float(bbox.find('xmax').text)
+                y2 = float(bbox.find('ymax').text)
                 boxes.append([x1, y1, x2, y2])
 
                 categories.append(self.class_dict[class_name])
