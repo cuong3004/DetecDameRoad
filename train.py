@@ -7,7 +7,7 @@ import torchvision
 from torchsummary import summary 
 import callback as call
 import os
-from data_download_banana import load_data_bananas
+# from data_download_banana import load_data_bananas
 from custom_data import CustomData
 
 # def transforms_banana(a)
