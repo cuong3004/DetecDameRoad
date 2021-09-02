@@ -8,6 +8,9 @@ from torch.utils.mobile_optimizer import optimize_for_mobile
 
 
 
+
+
+
 def cls_predictor(num_inputs, num_anchors, num_classes):
     return nn.Conv2d(num_inputs, num_anchors * (num_classes + 1),
                      kernel_size=3, padding=1)
@@ -350,7 +353,11 @@ class LitObjectDetect(LightningModule):
 
     def configure_optimizers(self):
         # self.hparams available because we called self.save_hyperparameters()
-        return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=7, eta_min=5e-6)
+
+
+        return scheduler
 
 
 class TinySSD(nn.Module):
