@@ -5,6 +5,19 @@ from torchvision.utils import make_grid
 import cv2
 import numpy as np
 
+folder_checkpoint = 'checkpoint'
+if not os.path.exists(folder_checkpoint): # create folder
+    os.mkdir(folder_checkpoint)
+    
+checkpoint_callback = pl.ModelCheckpoint(
+    dirpath=folder_checkpoint,
+    filename="model",
+    save_top_k=1,
+    verbose=True,
+    monitor='valid_loss',
+    mode='min',    
+)
+
 
 def get_heat_map_from_fearture_map(x, features_map):
 

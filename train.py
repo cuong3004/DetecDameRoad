@@ -81,7 +81,7 @@ def cli_main():
                 call.TrainInputOutputMonitor(),
                 call.ValidInputOutputMonitor(),
                 # call.WeightMonitor(),
-                # call.checkpoint_callback,
+                call.checkpoint_callback,
                 # call.TestMonitor(),
             ]
 
@@ -97,9 +97,9 @@ def cli_main():
     # trainer.fit(model, train_loader, val_loader) # val_loader
     # trainer.fit(model, train_loader, val_loader)
     trainer.fit(model, train_loader, val_loader)
-    trainer.validate(model, valid_iter)
+    # trainer.validate(model, valid_iter)
 
-    torch.save(model.backbone.state_dict(), "model_ssd_V3.pt")
+    torch.save(model.backbone.state_dict(), "model_ssd_traffic.pt")
 
     # result = trainer.test(test_dataloaders=val_loader)
 
