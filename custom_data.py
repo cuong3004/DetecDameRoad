@@ -47,7 +47,7 @@ class CustomData(Dataset):
 
         if not self.keep_difficult:
             boxes = boxes[is_difficult == 0]
-            category = category[is_difficult == 0]
+            categories = categories[is_difficult == 0]
 
         if self.transform:
             transformed = self.transform(image=image, bboxes=boxes, class_labels=categories)
