@@ -39,16 +39,16 @@ def cli_main():
 
 
     dataset = CustomData(df, label_map, transform=transforms, keep_difficult=False)
-    dataloader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn)
+    # dataloader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn)
     # load_data_bananas
-    '''
+    
     train_size = int(0.9 * len(dataset))
     valid_size = len(dataset) - train_size
     train_dataset, valid_dataset = random_split(dataset, [train_size, valid_size])
 
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True , num_workers=0, pin_memory=True, collate_fn=collate_fn)
     val_loader = DataLoader(valid_dataset, batch_size=32, shuffle=False, num_workers=0, pin_memory=True, collate_fn=collate_fn)
-    '''
+    
 
     # test_input_dataset(train_dataset)
     # test_input_dataloader(train_loader)
@@ -96,7 +96,7 @@ def cli_main():
 
     # trainer.fit(model, train_loader, val_loader) # val_loader
     # trainer.fit(model, train_loader, val_loader)
-    trainer.fit(model, train_iter)
+    trainer.fit(model, train_loader, val_loader)
     trainer.validate(model, valid_iter)
 
     torch.save(model.backbone.state_dict(), "model_ssd_V3.pt")
