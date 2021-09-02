@@ -10,7 +10,7 @@ import cv2
 font = 0
 fontScale = 0.5
 # thickness = 2
-image_size = (512,512)
+image_size = (320,320)
 
 
 voc_labels = ('bicycle', 'car', 'bus', 'motorcycle')
@@ -24,10 +24,12 @@ label_color_map = {k: distinct_colors[i] for i, k in enumerate(label_map.keys())
 
 transform_albu = A.Compose([
         A.ISONoise(p=0.7, color_shift=(0.2, 0.2), intensity=(0.5, 0.5)),
-        A.PadIfNeeded(p=0.8, border_mode=0, min_height=512, min_width=512 ),
+        A.PadIfNeeded(p=0.8, border_mode=0, min_height=image_size[0], min_width=image_size[1] ),
         A.Blur(p=0.7),
         A.Cutout(),
         A.RandomSunFlare(p=0.5, src_radius=80),
+        A.MotionBlur()
+        A.GaussNoise(p=0.5, var_limit=(50.0, 50.0),mean=10),
         A.RandomBrightnessContrast(),
         A.HorizontalFlip(),
         A.Resize(*image_size),
