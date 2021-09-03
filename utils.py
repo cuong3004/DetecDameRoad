@@ -12,8 +12,7 @@ fontScale = 0.5
 # thickness = 2
 image_size = (320,320)
 
-
-voc_labels = ('car', 'car', 'bus', 'motorcycle')
+voc_labels = ['car']
 label_map = {k: v for v, k in enumerate(voc_labels)}
 rev_label_map = {v: k for k, v in label_map.items()}  # Inverse mapping
 distinct_hex = ['#e6194b', '#3cb44b', '#ffe119', '#0082c8', '#f58231', '#911eb4', '#46f0f0', '#f032e6',
