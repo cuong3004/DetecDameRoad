@@ -58,7 +58,7 @@ def cli_main():
     # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model_ssd = MySSD(
         in_channels=3,
-        num_classes=4, 
+        num_classes=1, 
         batch_norm=True,
     )
     # ------------

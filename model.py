@@ -357,7 +357,7 @@ class LitObjectDetect(LightningModule):
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=7, eta_min=5e-6)
 
 
-        return scheduler
+        return [optimizer], [scheduler]
 
 
 class TinySSD(nn.Module):
