@@ -24,7 +24,7 @@ label_color_map = {k: distinct_colors[i] for i, k in enumerate(label_map.keys())
 transform_albu = A.Compose([
         A.ISONoise(p=0.7, color_shift=(0.2, 0.2), intensity=(0.5, 0.5)),
         A.PadIfNeeded(p=1, border_mode=0, min_height=image_size[0], min_width=image_size[1] ),
-        A.RandomCrop(*image_size),
+        # A.RandomCrop(*image_size),
         A.Blur(p=0.7),
         A.Cutout(),
         A.RandomSunFlare(p=0.5, src_radius=80),
